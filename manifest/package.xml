@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>DataMaskingBatch</members>
+		<members>DataMaskingController</members>
+		<members>MaskingUtil</members>
+		<members>TestDataMaskingSetup</members>
+		<members>Test_DataMaskingBatch</members>
+		<members>Test_DataMaskingController</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Data_Masking_Config.Contact_AssistantPhone</members>
+		<members>Data_Masking_Config.Contact_Description</members>
+		<members>Data_Masking_Config.Contact_Email</members>
+		<members>Data_Masking_Config.Contact_FirstName</members>
+		<members>Data_Masking_Config.Contact_LastName</members>
+		<members>Data_Masking_Config.Contact_Loan_Amount_c</members>
+		<members>Data_Masking_Config.Contact_Phone</members>
+		<members>Data_Masking_Config.Lead_Email</members>
+		<members>Data_Masking_Config.Lead_Street</members>
+		<name>CustomMetadata</name>
+	</types>
+	<types>
+		<members>Data_Masking_Config__mdt</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Data_Masking_Config__mdt-Data Masking Config Layout</members>
+		<name>Layout</name>
+	</types>
+	<version>65.0</version>
+</Package>
