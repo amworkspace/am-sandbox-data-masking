@@ -1,3 +1,12 @@
+/*
+ * File: DataMaskingController.cls
+ * Salesforce Data Masking Automation
+ * Copyright (c) 2025, Anil Mannem
+ * https://github.com/amworkspace/am-sandbox-data-masking
+ *
+ * Description: Controller class to mask data in the org, for fields specified in Custom Metadata.
+ */
+
 global class DataMaskingController {
 
   private static final String PROD_ORG_ID = '00DXXXXXXXXXXX'; // Update with you PROD Org Id

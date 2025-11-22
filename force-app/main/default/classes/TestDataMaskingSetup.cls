@@ -1,3 +1,10 @@
+/*
+ * File: TestDataMaskingSetup.cls
+ * Salesforce Data Masking Automation
+ * Copyright (c) 2025, Anil Mannem
+ * https://github.com/amworkspace/am-sandbox-data-masking
+ */
+
 @IsTest
 public class TestDataMaskingSetup {
 

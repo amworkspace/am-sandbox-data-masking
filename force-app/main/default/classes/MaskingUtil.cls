@@ -1,3 +1,11 @@
+/*
+ * File: MaskingUtil.cls
+ * Salesforce Data Masking Automation
+ * Copyright (c) 2025, Anil Mannem
+ * https://github.com/amworkspace/am-sandbox-data-masking
+ *
+ * Description: Utility class with masking methods for Name, Email, Phone, Text, and Number fields.
+ */
 public class MaskingUtil {
 
   public static String maskEmail(String email) {

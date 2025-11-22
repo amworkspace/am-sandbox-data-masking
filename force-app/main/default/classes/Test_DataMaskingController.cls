@@ -1,3 +1,10 @@
+/*
+ * File: Test_DataMaskingController.cls
+ * Salesforce Data Masking Automation
+ * Copyright (c) 2025, Anil Mannem
+ * https://github.com/amworkspace/am-sandbox-data-masking
+ */
+
 @IsTest
 private class Test_DataMaskingController {
 

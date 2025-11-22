@@ -1,4 +1,13 @@
-public class DataMaskingBatch implements Database.Batchable<SObject>, Database.Stateful {
+/*
+ * File: DataMaskingBatch.cls
+ * Salesforce Data Masking Automation
+ * Copyright (c) 2025, Anil Mannem
+ * https://github.com/amworkspace/am-sandbox-data-masking
+ *
+ * Description: Batch class to mask data in the org
+ */
+
+ public class DataMaskingBatch implements Database.Batchable<SObject>, Database.Stateful {
 
   private String objectName;
   private List<Data_Masking_Config__mdt> fieldConfigs;
