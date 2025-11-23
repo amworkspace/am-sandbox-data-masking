@@ -45,7 +45,7 @@ This project provides an automated and configurable Apex-based framework to mask
 | `Test_DataMaskingBatch.cls` | Unit tests exercising masking logic and DataMaskingBatch.cls |
 | `Test_DataMaskingController.cls` | Unit tests exercising masking logic and DataMaskingController.cls |
 
---- 
+---
 
 ## 🧪 Running in Sandbox
 From **Developer Console → Execute Anonymous**:
@@ -54,4 +54,5 @@ From **Developer Console → Execute Anonymous**:
 DataMaskingController.maskData();
 ```
 
+There are multiple ways to implement data masking in Salesforce, and this repository reflects one approach that I personally designed and found scalable for sandbox environments. If you have suggestions, improvements, or questions, feel free to reach out — I’d be happy to collaborate.
 ---

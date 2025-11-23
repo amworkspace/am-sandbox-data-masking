@@ -1,15 +1,15 @@
 /*
  * File: MaskingUtil.cls
- * Salesforce Data Masking Automation
+ * Salesforce Sandbox Data Masking Automation
  * Copyright (c) 2025, Anil Mannem
  * https://github.com/amworkspace/am-sandbox-data-masking
  *
  * Description: Utility class with masking methods for Name, Email, Phone, Text, and Number fields.
  */
-public class MaskingUtil {
+
+ public class MaskingUtil {
 
   public static String maskEmail(String email) {
-    if (String.isBlank(email)) return email;
     if (email.toLowerCase().endsWith('sandbox@masked.invalid')) {
         return email;
     }
@@ -20,17 +20,17 @@ public class MaskingUtil {
   }
 
   public static String maskPhone(String original) {
-    if (String.isBlank(original)) return '9999999999';
     String lastTwo = '';
     for (Integer i = original.length()-1; i >= 0 && lastTwo.length() < 2; i--) {
       String ch = original.substring(i, i+1);
-      if (ch >= '0' && ch <= '9') lastTwo = ch + lastTwo;
+      if (ch >= '0' && ch <= '9') {
+        lastTwo = ch + lastTwo;
+      }
     }
     return (lastTwo.length() == 2) ? '99999999' + lastTwo : '9999999999';
   }
 
   public static String maskText(String original) {
-    if (String.isBlank(original)) return original;
     return 'Masked';
   }
 
@@ -42,15 +42,31 @@ public class MaskingUtil {
     return 0;
   }
 
-  public static Object maskField(Object original, String type, Boolean isFirstName) {
-    if (original == null) return null;
+  public static Object maskField(Object original, String type,
+    Boolean isFirstName) {
+
+    if (original == null) {
+      return null;
+    }
     switch on type {
-      when 'Email' { return maskEmail(String.valueOf(original)); }
-      when 'Phone' { return maskPhone(String.valueOf(original)); }
-      when 'Text' { return maskText(String.valueOf(original)); }
-      when 'Name' { return maskName(String.valueOf(original), isFirstName); }
-      when 'Number' { return Integer.valueOf(maskNumber(original)); }
-      when else { return original; }
+      when 'Email' {
+        return maskEmail(String.valueOf(original));
+      }
+      when 'Name' {
+        return maskName(String.valueOf(original), isFirstName);
+      }
+      when 'Number' {
+        return Integer.valueOf(maskNumber(original));
+      }
+      when 'Phone' {
+        return maskPhone(String.valueOf(original));
+      }
+      when 'Text' {
+        return maskText(String.valueOf(original));
+      }
+      when else {
+        return original;
+      }
     }
   }
 }
