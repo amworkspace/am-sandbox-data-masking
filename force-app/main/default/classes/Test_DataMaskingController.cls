@@ -1,6 +1,6 @@
 /*
  * File: Test_DataMaskingController.cls
- * Salesforce Data Masking Automation
+ * Salesforce Sandbox Data Masking Automation
  * Copyright (c) 2025, Anil Mannem
  * https://github.com/amworkspace/am-sandbox-data-masking
  */
@@ -10,17 +10,17 @@ private class Test_DataMaskingController {
 
   @IsTest
   static void testControllerRun() {
-    Contact c = TestDataMaskingSetup.setupContact();
+    Lead l = TestDataMaskingSetup.setupLead();
     TestDataMaskingSetup.setupMetadata();
 
     Test.startTest();
     DataMaskingController.maskData();
     Test.stopTest();
 
-    Contact updated = [
+    Lead updated = [
       SELECT FirstName, LastName, Email, Phone
-      FROM Contact
-      WHERE Id = :c.Id
+      FROM Lead
+      WHERE Id = :l.Id
     ];
     System.assertNotEquals('john.doe@example.com', updated.Email);
     System.assert(updated.Email.endsWith('@masked.invalid'));

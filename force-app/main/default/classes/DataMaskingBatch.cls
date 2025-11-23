@@ -1,18 +1,21 @@
 /*
  * File: DataMaskingBatch.cls
- * Salesforce Data Masking Automation
+ * Salesforce Sandbox Data Masking Automation
  * Copyright (c) 2025, Anil Mannem
  * https://github.com/amworkspace/am-sandbox-data-masking
  *
  * Description: Batch class to mask data in the org
  */
 
- public class DataMaskingBatch implements Database.Batchable<SObject>, Database.Stateful {
+ public class DataMaskingBatch implements Database.Batchable<SObject>,
+  Database.Stateful {
 
   private String objectName;
   private List<Data_Masking_Config__mdt> fieldConfigs;
 
-  public DataMaskingBatch(String objName, List<Data_Masking_Config__mdt> configs) {
+  public DataMaskingBatch(String objName,
+    List<Data_Masking_Config__mdt> configs) {
+
     this.objectName = objName;
     this.fieldConfigs = configs;
   }
@@ -23,7 +26,9 @@
     for (Data_Masking_Config__mdt cfg : fieldConfigs) {
       fieldSet.add(cfg.Field_API__c);
     }
-    String queryString = 'SELECT ' + String.join(new List<String>(fieldSet), ',') + ' FROM ' + objectName;
+    String queryString = 'select ' +
+                          String.join(new List<String>(fieldSet), ',') +
+                          ' from ' + objectName;
     return Database.getQueryLocator(queryString);
   }
 
@@ -33,21 +38,28 @@
       Boolean changed = false;
       for (Data_Masking_Config__mdt cfg : fieldConfigs) {
         String fieldName = cfg.Field_API__c;
-        if (!sob.getSObjectType().getDescribe().fields.getMap().containsKey(fieldName)) continue;
+        if (!sob.getSObjectType().getDescribe().fields.getMap()
+          .containsKey(fieldName)) {
+
+          continue;
+        }
         Object original = sob.get(fieldName);
         Object masked;
         Boolean isFirstName = fieldName.toLowerCase().contains('firstname');
-
-        masked = MaskingUtil.maskField(original, cfg.Masking_Type__c, isFirstName);
-
+        masked = MaskingUtil.maskField(original, cfg.Masking_Type__c,
+          isFirstName);
         if (masked != null && masked != original) {
           sob.put(fieldName, masked);
           changed = true;
         }
       }
-      if (changed) updates.add(sob);
+      if (changed) {
+        updates.add(sob);
+      }
     }
-    if (!updates.isEmpty()) update updates;
+    if (!updates.isEmpty()) {
+      update updates;
+    }
   }
 
   public void finish(Database.BatchableContext bc) {

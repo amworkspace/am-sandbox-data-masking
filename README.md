@@ -45,7 +45,7 @@ This project provides an automated and configurable Apex-based framework to mask
 | `Test_DataMaskingBatch.cls` | Unit tests exercising masking logic and DataMaskingBatch.cls |
 | `Test_DataMaskingController.cls` | Unit tests exercising masking logic and DataMaskingController.cls |
 
---- 
+---
 
 ## 🧪 Running in Sandbox
 From **Developer Console → Execute Anonymous**:
@@ -53,5 +53,44 @@ From **Developer Console → Execute Anonymous**:
 ```apex
 DataMaskingController.maskData();
 ```
+
+## 🚀 How to Deploy
+- Clone or download this repository.
+- Update the `PROD_ORG_ID` value inside **`DataMaskingController.cls`** with your actual Production Org Id.
+- Deploy the entire project to **any Sandbox** using **VS Code + Salesforce Extensions**, **SFDX CLI**, or **Metadata API / Change Set**.
+- Once deployed and validated in Sandbox, the same package can be deployed to **Production** — it includes **test classes**, so deployment will not block.
+- No additional configuration or external libraries required.
+
+---
+
+## ⚙️ How to Configure Metadata After Deployment
+- Go to **Setup → Custom Metadata Types → Data Masking Config**.
+- Click **Manage Records**.
+- For every field you want to mask:
+  - Select **Object API Name**
+  - Select **Field API Name**
+  - Choose **Masking Type** (Name, Email, Phone, Name, Text, Number)
+  - (Optional) Set the **Batch Size** for large datasets
+  - Set **Active = TRUE**
+- No code modifications are needed to add/remove masking on new fields — simply adjust metadata and re-run the masking job.
+
+---
+
+## 📁 Demo & Reference
+- A **sample demonstration video** is available inside the **`demo/` folder**.
+- The project is built to work **immediately after Sandbox refresh** when scheduled as an Apex job.
+- Production masking is prevented by **Org Id validation**, ensuring the feature is **safe and compliant**.
+- Supports:
+  - Multiple objects
+  - Multiple fields per object
+  - Different masking types in the same run
+
+---
+
+## 💡 Note
+There can be many different ways to approach data masking — this repository reflects the approach I chose based on scalability, reusability, and simplicity.
+If you have suggestions, improvements, or questions, I’d be happy to connect.
+
+📫 **Feel free to reach out anytime!**
 
 ---
