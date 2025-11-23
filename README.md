@@ -1,5 +1,12 @@
 # 🔐 Salesforce Sandbox Data Masking Automation
 
+
+## 👤 Author
+
+- Developed by **Anil Mannem**
+
+---
+
 ## 📌 Overview
 This project provides an automated and configurable Apex-based framework to mask sensitive Production data after Salesforce Sandbox refreshes. It prevents exposure of personal information (PII) while keeping the data usable for development, QA, and UAT testing.
 
@@ -76,9 +83,20 @@ DataMaskingController.maskData();
 
 ---
 
+## 🔸 Limitation
+
+- The Data Masking Engine supports masking for **up to 5 Salesforce objects per execution**.
+- Each object can contain **any number of fields** to be masked.
+- If masking is required for **more than 5 objects**:
+  - Update the **Active__c** flag in the Custom Metadata to deactivate the current set of objects.
+  - Activate the next set of objects that need masking.
+  - **Re-run the script** from the Developer Console to begin a fresh masking batch.
+
+---
+
 ## 📁 Demo & Reference
-- A **sample demonstration video** is available inside the **`demo/` folder**.
-- The project is built to work **immediately after Sandbox refresh** when scheduled as an Apex job.
+- A **short 2-mins demonstration video** is available inside the **`demo/` folder**.
+- The project is designed to run in any Sandbox **at any time after a Sandbox refresh** by executing the above script from the Developer Console → Anonymous Window.
 - Production masking is prevented by **Org Id validation**, ensuring the feature is **safe and compliant**.
 - Supports:
   - Multiple objects
