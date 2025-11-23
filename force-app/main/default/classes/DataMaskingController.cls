@@ -14,7 +14,7 @@ global class DataMaskingController {
     'make sure we have only 5 Active Objects';
   private static final String PROD_EXCEPTION_MESSAGE =
     'Data masking is blocked in Production.';
-  private static final String PROD_ORG_ID = '00DXXXXXXXXXXX'; // Update with you PROD Org Id
+  private static final String PROD_ORG_ID = '00DXXXXXXXXXXX'; // Update with your PRODUCTION Org Id
 
   private static Boolean isProduction() {
     return UserInfo.getOrganizationId() == PROD_ORG_ID;
