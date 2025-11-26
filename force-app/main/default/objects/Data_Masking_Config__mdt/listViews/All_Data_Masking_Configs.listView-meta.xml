@@ -5,8 +5,8 @@
     <columns>Object_API__c</columns>
     <columns>Field_API__c</columns>
     <columns>Masking_Type__c</columns>
+    <columns>Batch_Size__c</columns>
     <columns>Active__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Data Masking Configs</label>
-    <language>en_US</language>
 </ListView>
