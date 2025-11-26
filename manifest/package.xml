@@ -15,9 +15,9 @@
 		<members>Data_Masking_Config.Contact_Email</members>
 		<members>Data_Masking_Config.Contact_FirstName</members>
 		<members>Data_Masking_Config.Contact_LastName</members>
-		<members>Data_Masking_Config.Contact_Loan_Amount_c</members>
 		<members>Data_Masking_Config.Contact_Phone</members>
 		<members>Data_Masking_Config.Lead_Email</members>
+		<members>Data_Masking_Config.Lead_NumberOfEmployees</members>
 		<members>Data_Masking_Config.Lead_Street</members>
 		<name>CustomMetadata</name>
 	</types>
